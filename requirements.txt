@@ -1,0 +1,8 @@
+numpy
+pandas
+matplotlib
+spectral
+specdal
+python-dotenv
+pymongo
+streamlit
