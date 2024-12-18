@@ -154,4 +154,4 @@ if st.button("Plot", type="primary"):
        filter['name'] = species
        #st.session_state.sc.plot_with_filter(filter, plotby)
        sc.plot_with_filter(filter, plotby)
-       st.pyplot(plt.gcf())
+       st.pyplot(plt.gcf(), use_container_width=False)

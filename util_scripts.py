@@ -247,24 +247,25 @@ class SpectralCollection():
 
         return df
 
-    def df_with_codes(self, codes, list_by) -> pd.DataFrame:
+    @st.cache_data
+    def df_with_codes(_self, codes, list_by) -> pd.DataFrame:
         
         #title = ""
         
         #title = title[:-2]
 
-        vals = np.unique(self.code_dict[list_by][0])
+        vals = np.unique(_self.code_dict[list_by][0])
         vals_totals = []
         count_totals = []
 
         for val in vals:
-            indices = np.where(self.code_dict[list_by][0]==val)[0]
+            indices = np.where(_self.code_dict[list_by][0]==val)[0]
             full_dict_of_counts = {}
             for code in codes:
-                code_vals = np.unique(self.code_dict[code][0]).tolist()
+                code_vals = np.unique(_self.code_dict[code][0]).tolist()
 
                 dict_of_counts = dict(zip(code_vals, [0] * len(code_vals)))
-                counts = Counter(self.code_dict[code][0][indices])
+                counts = Counter(_self.code_dict[code][0][indices])
                 
                 for k, v in counts.items():
                     dict_of_counts[str(k)] = v
